@@ -12,8 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-let util = require('util');
-
 function substitute(depth, pronoun) {
   if (depth == 0) {
     return `the ${pronoun}`;
