@@ -17,11 +17,11 @@ let util = require('util');
 function substitute(depth, pronoun) {
   if (depth == 0) {
     return `the ${pronoun}`;
-  } else {
-    let string = "not just the %s but %s and %s too";
+  }
+  else {
     let women = substitute(depth - 1, womenify(pronoun));
     let children = substitute(depth - 1, childrenify(pronoun));
-    return util.format(string, pronoun, women, children);
+    return `not just the ${pronoun} but ${women} and ${children} too`;
   }
 }
 
