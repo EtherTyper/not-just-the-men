@@ -17,8 +17,7 @@ let util = require('util');
 function substitute(depth, pronoun) {
   if (depth == 0) {
     return `the ${pronoun}`;
-  }
-  else {
+  } else {
     let women = substitute(depth - 1, womenify(pronoun));
     let children = substitute(depth - 1, childrenify(pronoun));
     return `not just the ${pronoun} but ${women} and ${children} too`;
