@@ -12,14 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import Pronoun from "./Pronoun";
+import Men from "./Men";
+import Women from "./Women";
+import Children from "./Children";
+
 function substitute(depth: number, pronoun: Pronoun = new Men("men")): string {
-  if (depth == 0) {
-    return `the ${pronoun}`;
-  } else {
-    let women = substitute(depth - 1, new Women(pronoun));
-    let children = substitute(depth - 1, new Children(pronoun));
-    return `not just the ${pronoun} but ${women} and ${children} too`;
-  }
+    if (depth == 0) {
+        return `the ${pronoun}`;
+    } else {
+        let women = substitute(depth - 1, new Women(pronoun));
+        let children = substitute(depth - 1, new Children(pronoun));
+        return `not just the ${pronoun} but ${women} and ${children} too`;
+    }
 }
 
 console.log(substitute(Number(process.argv[2])));

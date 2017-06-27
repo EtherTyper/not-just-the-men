@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-abstract class Pronoun {
-  array: string[];
+export default abstract class Pronoun {
+    array: string[];
 
-  toString() {
-    return this.array.join(' ');
-  }
+    toString() {
+        return this.array.join(' ');
+    }
 }

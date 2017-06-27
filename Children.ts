@@ -12,24 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-class Children extends Pronoun {
-  parent: Pronoun;
+import Pronoun from "./Pronoun";
 
-  constructor(parent: Pronoun) {
-    super();
-    this.parent = parent;
-  }
+export default class Children extends Pronoun {
+    parent: Pronoun;
 
-  get array() {
-    let array = this.parent.array.slice();
-    let lastWord = array.pop() || 'men';
-
-    if (lastWord.includes('men')) {
-      array.push(lastWord.replace('men', 'children'));
-    } else {
-      array.push(`${lastWord}'s`, 'children');
+    constructor(parent: Pronoun) {
+        super();
+        this.parent = parent;
     }
 
-    return array;
-  }
+    get array() {
+        let array = this.parent.array.slice();
+        let lastWord = array.pop() || 'men';
+
+        if (lastWord.includes('men')) {
+            array.push(lastWord.replace('men', 'children'));
+        } else {
+            array.push(`${lastWord}'s`, 'children');
+        }
+
+        return array;
+    }
 }

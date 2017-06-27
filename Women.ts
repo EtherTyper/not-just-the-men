@@ -12,16 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-class Women extends Pronoun {
-  parent: Pronoun;
+import Pronoun from "./Pronoun";
 
-  constructor(parent: Pronoun) {
-    super();
-    this.parent = parent;
-  }
+export default class Women extends Pronoun {
+    parent: Pronoun;
 
-  get array() {
-    let array = this.parent.array.slice();
-    return array.concat(`wo${array.pop()}`);
-  }
+    constructor(parent: Pronoun) {
+        super();
+        this.parent = parent;
+    }
+
+    get array() {
+        let array = this.parent.array.slice();
+        return array.concat(`wo${array.pop()}`);
+    }
 }

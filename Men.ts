@@ -12,15 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-class Men extends Pronoun {
-  pronoun: string;
+import Pronoun from "./Pronoun";
 
-  constructor(pronoun: string) {
-    super();
-    this.pronoun = pronoun;
-  }
+export default class Men extends Pronoun {
+    pronoun: string;
 
-  get array() {
-    return [this.pronoun];
-  }
+    constructor(pronoun: string) {
+        super();
+        this.pronoun = pronoun;
+    }
+
+    get array() {
+        return [this.pronoun];
+    }
 }
