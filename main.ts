@@ -12,32 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-function substitute(depth, pronoun) {
+function substitute(depth: number, pronoun: Pronoun = new Men("men")): string {
   if (depth == 0) {
     return `the ${pronoun}`;
   } else {
-    let women = substitute(depth - 1, womenify(pronoun));
-    let children = substitute(depth - 1, childrenify(pronoun));
+    let women = substitute(depth - 1, new Women(pronoun));
+    let children = substitute(depth - 1, new Children(pronoun));
     return `not just the ${pronoun} but ${women} and ${children} too`;
   }
 }
 
-function womenify(pronoun) {
-  let array = pronoun.split(' ');
-  array[array.length - 1] = `wo${array[array.length - 1]}`;
-  return array.join(' ');
-}
-
-function childrenify(pronoun) {
-  let array = pronoun.split(' ');
-
-  if (array[array.length - 1].includes('men')) {
-    array[array.length - 1] = array[array.length - 1].replace('men', 'children');
-  } else {
-    array[array.length - 1] = `${array[array.length - 1]}'s children`;
-  }
-
-  return array.join(' ');
-}
-
-console.log(substitute(process.argv[2], 'men'));
+console.log(substitute(Number(process.argv[2])));
